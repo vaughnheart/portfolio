@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaughn | Project Management</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaughn | Project Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="index.html">Project Management</a>
+      <a href="coaching.html">Nutrition Coaching</a>
+    </nav>
+    <button id="mode-toggle" aria-label="Toggle dark mode">
+      <svg id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </header>
 
-<nav>
-    <a href="index.html">Project Management</a>
-    <a href="coaching.html">Nutrition Coaching</a>
-</nav>
+  <div class="container">
+    <section>
+      <h1>Project Management & Systems</h1>
+      <h2>👋 Hi, I'm Vaughn Aeruthayan 😃</h2>
+      <p>I’m a builder of functional systems. I help entrepreneurs think clearer and move faster so they can focus on high-leverage work that moves their business forward.</p>
+      <br>
+      <p>My background blends project management from global MNCs with operational strategy for SMEs. I specialize in turning complexity into structure — building clear workflows, smarter automations, and aligned communication systems that make growth sustainable.</p>
+      <br>
+      <p>Often called a “Swiss Army Knife,” I’m comfortable working across time zones and tool stacks. From launching new processes to building dashboards or designing operational systems, I thrive in making things work better — and making them make sense.</p>
+      <br>
+      <p>Outside of work, I coach fitness classes, write, and spend time birdwatching. I live in the intersection where efficiency meets intentionality, prioritizing mindfulness above all.</p>
+    </section>
 
-<h1>Project Management & Systems</h1>
+    <section class="split">
+      <img src="https://images.unsplash.com/photo-1518976024611-28bf4b48222e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685" alt="Project management workspace">
+      <div class="skills">
+        <h2>Core Skills</h2>
+        <ul>
+          <li> 🤝 Cross-Functional Collaboration</li>
+          <li> 📆 Event & Operations Coordination</li>
+          <li> ⛓️ Project Management & Systems Design</li>
+          <li> 🔁 Workflow Automation & Optimization</li>
+          <li> 📚 Communication & Knowledge Management</li>
+        </ul>
+        <br><br><br><br><br><br><br><br>
+        <a class="button" href="mailto:vaughn@fitatwork.my">Work with me</a>
+      </div>
+    </section>
 
-<p>I’m a builder of functional systems. I help entrepreneurs think clearer and move faster so they can focus on high-leverage work that moves their business forward.</p>
+    
 
-<p>My background blends project management from global MNCs with operational strategy for SMEs. I specialize in turning complexity into structure — building clear workflows, smarter automations, and aligned communication systems that make growth sustainable.</p>
+    <div class="cross-link">
+      Looking to improve your health and habits? <a href="coaching.html">Check out my coaching page →</a>
+    </div>
+  </div>
 
-<p>Often called a “Swiss Army Knife,” I’m comfortable working across time zones and tool stacks. From launching new processes to building dashboards or designing operational systems, I thrive in making things work better — and making them make sense.</p>
+  <script>
+    const toggle = document.getElementById('mode-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('sun');
 
-<p>Outside of work, I coach fitness classes, write, and spend time birdwatching. I live in the intersection where efficiency meets intentionality, prioritizing mindfulness above all.</p>
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 0010 9.79z"/>';
+    }
 
-<h2>Core Skills</h2>
-<ul>
-    <li>Cross-Functional Collaboration</li>
-    <li>Event & Operations Coordination</li>
-    <li>Project Management & Systems Design</li>
-    <li>Workflow Automation & Optimization</li>
-    <li>Communication & Knowledge Management</li>
-</ul>
-
-<a class="button" href="mailto:vaughn@fitatwork.my">Work with me</a>
-
-<div class="cross-link">
-    Looking to improve your health and habits? <a href="coaching.html">Check out my coaching page →</a>
-</div>
-
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      icon.innerHTML = isDark
+        ? '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 0010 9.79z"/>'
+        : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    });
+  </script>
 </body>
 </html>
