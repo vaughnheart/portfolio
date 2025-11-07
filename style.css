@@ -36,12 +36,21 @@ body {
 /* Header */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centers everything */
   align-items: center;
   width: 100%;
   max-width: 750px;
   margin-bottom: 2rem;
+  position: relative; /* so we can absolutely position the toggle */
 }
+
+#mode-toggle {
+  position: absolute;
+  right: 0; /* keep toggle on the right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 
 nav {
   display: flex;
@@ -53,19 +62,34 @@ nav a {
   font-weight: 700;
   color: #0540F2;
   text-decoration: none;
-  border: 2px solid #0540F2;
-  border-radius: 25px;
-  padding: 0.4rem 1rem;
-  transition: 0.3s;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
 }
 
-/* Maintain accessible hover contrast */
+/* Simple underline animation on hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #0540F2;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  width: 100%;
+}
+
 nav a:hover,
 nav a:focus-visible {
-  background-color: #0540F2;
-  color: #fff;
+  color: #032cb0;
   outline: none;
 }
+
 
 /* Toggle button */
 #mode-toggle {
@@ -172,14 +196,17 @@ section {
 /* Use lighter but accessible blue (#9AC9E8) for contrast */
 .dark nav a {
   color: #9AC9E8;
-  border-color: #9AC9E8;
+}
+
+.dark nav a::after {
+  background-color: #9AC9E8;
 }
 
 .dark nav a:hover,
 .dark nav a:focus-visible {
-  background-color: #9AC9E8;
-  color: #111;
+  color: #ADD8E6;
 }
+
 
 .dark #mode-toggle svg {
   stroke: #9AC9E8;
