@@ -21,11 +21,23 @@ body {
 
 /* Prefer user's color scheme automatically */
 @media (prefers-color-scheme: dark) {
-  body:not(.light) {
+  body {
     background-color: #111;
     color: #f5f5f5;
   }
 }
+
+/* Manual overrides always take priority */
+body.light {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+body.dark {
+  background-color: #111111 !important;
+  color: #f5f5f5 !important;
+}
+
 
 /* Container width */
 .container {
