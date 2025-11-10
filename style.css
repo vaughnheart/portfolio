@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Lora&display=swap');
 
+/* === COLOR PALETTE === */
+:root {
+  /* Primary Colors (Blue Spectrum) */
+  --primary-0: #010d32;
+  --primary-100: #03258c;
+  --primary-200: #0540f0; /* main brand blue */
+  --primary-300: #5f86fc;
+  --primary-400: #c3d2fe;
+  
+  /* Secondary Colors (Gold Spectrum) */
+  --secondary-0: #322601;
+  --secondary-100: #8c6a03;
+  --secondary-200: #f0b505; /* accent highlight */
+  --secondary-300: #fcd55f;
+  --secondary-400: #feefc3;
+  
+  /* Accent (Purple range) — optional future highlights */
+  --accent-0: #450f57;
+  --accent-100: #8a1fad;
+  --accent-200: #bd52e0;
+  --accent-300: #dea8f0;
+  --accent-400: #eed4f7;
+  
+  /* Neutral */
+  --neutral-0: #17191c;
+  --neutral-100: #3c4048;
+  --neutral-200: #6b7280;
+  --neutral-300: #a0a6b0;
+  --neutral-400: #d8dadf;
+  --neutral-500: #f9fafb;
+}
 /* RESET */
 * {
   margin: 0;
@@ -9,8 +40,8 @@
 
 body {
   font-family: 'Lora', serif;
-  background-color: #ffffff;
-  color: #111111;
+  background-color: var(--neutral-500);
+  color: var(--neutral-0);
   line-height: 1.7;
   transition: background-color 0.3s ease, color 0.3s ease;
   display: flex;
@@ -19,23 +50,23 @@ body {
   padding: 2rem;
 }
 
-/* Prefer user's color scheme automatically */
+/* AUTO dark mode preference */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #111;
-    color: #f5f5f5;
+    background-color: var(--neutral-0);
+    color: var(--neutral-400);
   }
 }
 
-/* Manual overrides always take priority */
+/* Manual light/dark toggles */
 body.light {
-  background-color: #ffffff !important;
-  color: #111111 !important;
+  background-color: var(--neutral-500) !important;
+  color: var(--neutral-0) !important;
 }
 
 body.dark {
-  background-color: #111111 !important;
-  color: #f5f5f5 !important;
+  background-color: var(--neutral-0) !important;
+  color: var(--neutral-400) !important;
 }
 
 
@@ -72,7 +103,7 @@ nav {
 nav a {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  color: #0540F2;
+  color: var(--primary-200);
   text-decoration: none;
   position: relative;
   padding: 0.25rem 0;
@@ -87,7 +118,7 @@ nav a::after {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #0540F2;
+  background-color: var(--primary-200);
   transition: width 0.3s ease;
 }
 
@@ -98,7 +129,7 @@ nav a:focus-visible::after {
 
 nav a:hover,
 nav a:focus-visible {
-  color: #032cb0;
+  color: var(--secondary-200);
   outline: none;
 }
 
@@ -115,7 +146,7 @@ nav a:focus-visible {
 #mode-toggle svg {
   width: 22px;
   height: 22px;
-  stroke: #0540F2;
+  stroke: var(--primary-200);
   fill: none;
   transition: fill 0.3s ease, stroke 0.3s ease;
 }
@@ -162,7 +193,7 @@ section {
 .button {
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  background-color: #0540F2;
+  background-color: var(--primary-200);
   color: #fff;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
@@ -175,8 +206,8 @@ section {
 .button:hover,
 .button:focus-visible {
   background-color: #fff;
-  color: #0540F2;
-  border: 2px solid #0540F2;
+  color: var(--primary-200);
+  border: 2px solid var(--primary-200);
   outline: none;
 }
 
@@ -188,7 +219,7 @@ section {
 }
 
 .cross-link a {
-  color: #0540F2;
+  color: var(--primary-200);
   text-decoration: none;
   font-weight: 700;
 }
@@ -200,52 +231,46 @@ section {
 }
 
 /* ===== Dark mode ===== */
-.dark {
-  background-color: #111111;
-  color: #f5f5f5;
-}
-
-/* Use lighter but accessible blue (#9AC9E8) for contrast */
 .dark nav a {
-  color: #9AC9E8;
+  color: var(--primary-300);
 }
 
 .dark nav a::after {
-  background-color: #9AC9E8;
+  background-color: var(--primary-300);
 }
 
 .dark nav a:hover,
 .dark nav a:focus-visible {
-  color: #ADD8E6;
+  color: var(--secondary-300);
 }
-
 
 .dark #mode-toggle svg {
-  stroke: #9AC9E8;
+  stroke: var(--secondary-300);
 }
+
 
 /* Buttons in dark mode */
 .dark .button {
-  background-color: #9AC9E8;
-  color: #111;
-  border: 2px solid #9AC9E8;
+  background-color: var(--secondary-200);
+  color: var(--neutral-0);
+  border-color: var(--secondary-200);
 }
 
 .dark .button:hover,
 .dark .button:focus-visible {
   background-color: transparent;
-  color: #9AC9E8;
+  color: var(--secondary-300);
+  border-color: var(--secondary-300);
 }
 
-/* Links in dark mode */
+/* Links */
 .dark a {
-  color: #9AC9E8;
+  color: var(--primary-300);
 }
 
 .dark a:hover,
 .dark a:focus-visible {
-  color: #ADD8E6;
-  text-decoration: underline;
+  color: var(--secondary-300);
 }
 
 /* ===== Footer ===== */
@@ -254,15 +279,15 @@ footer {
   max-width: 750px;
   margin-top: 2.5rem;
   padding: 2rem 0 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--neutral-300);
   text-align: center;
   font-family: 'Lora', serif;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--neutral-200);
 }
 
 footer a {
-  color: #0540F2;
+  color: var(--primary-200);
   text-decoration: none;
   font-weight: 600;
 }
@@ -274,12 +299,12 @@ footer a:focus-visible {
 
 /* Dark mode footer */
 .dark footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ccc;
+  border-top: 1px solid var(--neutral-100);
+  color: var(--neutral-300);
 }
 
 .dark footer a {
-  color: #9AC9E8;
+  color: var(--secondary-300);
 }
 
 /* Reduced motion respect */
